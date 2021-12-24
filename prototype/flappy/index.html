@@ -19,12 +19,42 @@ kaboom()
 loadSprite("hero", "/sprites/Player/gif/bird2.gif");
 loadSprite("background", "/sprites/Background/Background1.png");
 loadSprite("pipe", "/sprites/Tileset/pipe.png");
-
-istouch =  keyPress;
+loadSound("pipe", "/sprites/Tileset/whoo.mp3");
+isTouch = keyPress;
 let HightScore = 0;
+
+
+scene("menu", () => {
+    
+    add([
+    sprite("background",  {width: width(), height: height()})
+]);
+
+add([
+    sprite("hero"),
+    pos(width() / 2, height() / 2 - 5), 
+		origin("center"), 
+        scale(5)
+]);
+
+add([
+    text("Flappy BDX"),
+    pos(width() / 2, height() / 2 - 100), 
+		origin("center"),
+ ])
+ add([
+    text("press space\nor\n tape screen", {size:50} ),
+    pos(width() / 2, height() / 2 + 120),
+    origin("center"), 
+])
+ keyPress("space", () => {
+     go("game")
+ })
+})
+
+
 scene("game", () => {
 const PIPE_GAP = 120;
-
 let score = 0;
 add([
     sprite("background",  {width: width(), height: height()})
@@ -49,7 +79,7 @@ const  player = add([
 
 
 function producePipes(){
-    const offset = rand(-70,50);
+    const offset = rand(-70,60);
 add([ 
 sprite("pipe", {flipY:true}),
 pos(width() , height()/2 + offset + PIPE_GAP),
@@ -60,7 +90,7 @@ area(),
 
 add([ 
 sprite("pipe" ),
-pos(width() , height()/5 + offset - PIPE_GAP),
+pos(width() , height()/4 + offset - PIPE_GAP),
 "pipe",
 area()
 ])
@@ -88,13 +118,7 @@ player.action(() => {
     }
 })
 keyPress("space", () => {
-
-    player.jump(400);
-    
-    })
-
-onClick(() => {
-
+    play("whoo");
     player.jump(400);
     
     })
@@ -109,17 +133,18 @@ scene("gameover", (score) => {
 ]);
 
 add([
-    text("gameover\n" + "score:" + score + "\n hight score:" + HightScore, {size:60}, area()),
+    text("gameover\n" + "score:" + score + "\n hight score:" + HightScore, {size:45}, area()),
     pos(width() / 2, height() / 2 - 100), 
 		origin("center"),
  ])
  add([
-    text("press space", {size:50} ),
-    pos(width() / 6, height() / 2 + 200), 
+    text("press space\nor\ntape screen", {size:32} ),
+    pos(width() / 2, height() / 2 + 120),
+    origin("center"), 
 ])
  keyPress("space", () => {
      go("game")
  })
 })
-go("game");
+go("menu");
 </script>
