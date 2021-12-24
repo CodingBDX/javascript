@@ -19,7 +19,10 @@ kaboom()
 loadSprite("hero", "/sprites/Player/gif/bird2.gif");
 loadSprite("background", "/sprites/Background/Background1.png");
 loadSprite("pipe", "/sprites/Tileset/pipe.png");
-loadSound("pipe", "/sprites/Tileset/whoo.mp3");
+loadSound("OtherworldlyFoe", "sounds/main.flac");
+loadSound("woosh", "sounds/woosh.flac");
+
+const music = play("OtherworldlyFoe", { loop: true, volume:0.1 });
 isTouch = keyPress;
 let HightScore = 0;
 
@@ -118,10 +121,15 @@ player.action(() => {
     }
 })
 keyPress("space", () => {
-    play("whoo");
+    play("woosh", {  volume:0.5 }); 
     player.jump(400);
-    
+  
     })
+    onClick(() => {
+        play("woosh", {  volume:0.5 }); 
+    player.jump(400);
+	})
+  
 });
 
 scene("gameover", (score) => {
