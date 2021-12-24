@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="https://unpkg.com/kaboom/dist/kaboom.js"></script>
+<script>
+kaboom()
+
+loadSprite("hero", "/sprites/Player/gif/bird2.gif");
+loadSprite("background", "/sprites/Background/Background1.png");
+loadSprite("pipe", "/sprites/Tileset/pipe.png");
+
+
+let HightScore = 0;
+scene("game", () => {
+const PIPE_GAP = 120;
+
+let score = 0;
+add([
+    sprite("background",  {width: width(), height: height()})
+]);
+
+  // add a game object to screen
+  const scoretxt = add([
+    text(score, {size:50}),
+    pos(24, 24),
+    { value: 0 },
+])
+
+const  player = add([
+    sprite("hero"),
+    pos(80, 40),
+    scale(2
+    ),
+    area(),
+    body(),
+])
+
+
+
+function producePipes(){
+    const offset = rand(-70,50);
+add([ 
+sprite("pipe", {flipY:true}),
+pos(width() , height()/2 + offset + PIPE_GAP),
+"pipe",
+area(),
+{passed: false}
+])
+
+add([ 
+sprite("pipe" ),
+pos(width() , height()/5 + offset - PIPE_GAP),
+"pipe",
+area()
+])
+}
+loop(1.5, () =>{
+    producePipes();
+});
+player.collides("pipe", () => {
+go("gameover", score);
+})
+
+action("pipe", (pipe) => {
+    pipe.move(-160, 0);
+    if (pipe.passed === false && pipe.pos.x < player.pos.x) {
+
+        pipe.passed = true;
+        score += 1;
+        scoretxt.text = score;
+    }  
+});
+
+player.action(() => {
+    if (player.pos.y > height() + 30 || player.pos.y < -30) {
+        go("gameover", score)
+    }
+})
+keyPress("space", () => {
+
+    player.jump(400);
+    
+    })
+});
+
+scene("gameover", (score) => {
+    if (score > HightScore){
+        HightScore = score;
+    }
+    add([
+    sprite("background",  {width: width(), height: height()})
+]);
+
+add([
+    text("gameover\n" + "score:" + score + "\n hight score:" + HightScore, {size:60}, area()),
+    pos(width() / 2, height() / 2 - 100), 
+		origin("center"),
+ ])
+ add([
+    text("press space", {size:50} ),
+    pos(width() / 6, height() / 2 + 200), 
+])
+ keyPress("space", () => {
+     go("game")
+ })
+})
+go("game");
+</script>
