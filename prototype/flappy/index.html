@@ -20,7 +20,7 @@ loadSprite("hero", "/sprites/Player/gif/bird2.gif");
 loadSprite("background", "/sprites/Background/Background1.png");
 loadSprite("pipe", "/sprites/Tileset/pipe.png");
 
-
+istouch =  keyPress;
 let HightScore = 0;
 scene("game", () => {
 const PIPE_GAP = 120;
@@ -88,6 +88,11 @@ player.action(() => {
     }
 })
 keyPress("space", () => {
+
+    player.jump(400);
+    
+    })
+isTouch("space", () => {
 
     player.jump(400);
     
