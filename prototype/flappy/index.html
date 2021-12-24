@@ -16,7 +16,14 @@
 <script>
 kaboom()
 
-loadSprite("hero", "/sprites/Player/gif/bird2.gif");
+loadSprite("hero", "/sprites/Player/bird2.png", {
+    sliceX: 4,
+  sliceY: 1,
+
+  anims: {
+    run: { from: 0, to: 3, loop: true, speed: 5, },
+  }
+});
 loadSprite("background", "/sprites/Background/Background1.png");
 loadSprite("pipe", "/sprites/Tileset/pipe.png");
 loadSound("OtherworldlyFoe", "sounds/main.flac");
@@ -128,11 +135,13 @@ player.action(() => {
     }
 })
 keyPress("space", () => {
+    player.play("run")
     play("woosh", {  volume:0.5 }); 
     player.jump(400);
   
     })
     onClick(() => {
+        player.play("run")
         play("woosh", {  volume:0.5 }); 
     player.jump(400);
 	})
