@@ -57,7 +57,7 @@ add([
 
 
 scene("game", () => {
-const PIPE_GAP = 120;
+const PIPE_GAP = 122;
 let score = 0;
 add([
     sprite("background",  {width: width(), height: height()})
@@ -82,18 +82,21 @@ const  player = add([
 
 
 function producePipes(){
-    const offset = rand(-70,60);
+    const offset = rand(-20,20);
 add([ 
-sprite("pipe", {flipY:true}),
-pos(width() , height()/2 + offset + PIPE_GAP),
+sprite("pipe",  {flipY: true} ),
+pos(width() , height()/2 + offset + PIPE_GAP/2),
+scale(2),
 "pipe",
 area(),
 {passed: false}
 ])
 
 add([ 
-sprite("pipe" ),
-pos(width() , height()/4 + offset - PIPE_GAP),
+sprite("pipe"),
+pos(width() , height()/2 + offset - PIPE_GAP/2),
+origin("botleft"),
+scale(2),
 "pipe",
 area()
 ])
@@ -107,6 +110,7 @@ go("gameover", score);
 
 action("pipe", (pipe) => {
     pipe.move(-160, 0);
+    
     if (pipe.passed === false && pipe.pos.x < player.pos.x) {
 
         pipe.passed = true;
