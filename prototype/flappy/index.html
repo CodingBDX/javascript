@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +14,13 @@
 </body>
 </html>
 <script src="https://unpkg.com/kaboom/dist/kaboom.js"></script>
+
 <script>
-kaboom()
+kaboom({
+...
+{"fullscreen":true,"width":480,"height":360,"scale":2,"startScene":"main","version":"0.5.0"},
+  
+});
 
 loadSprite("hero", "/sprites/Player/bird2.png", {
     sliceX: 4,
@@ -26,6 +32,7 @@ loadSprite("hero", "/sprites/Player/bird2.png", {
 });
 loadSprite("background", "/sprites/Background/Background1.png");
 loadSprite("pipe", "/sprites/Tileset/pipe.png");
+loadSprite("enemy", "/sprites/Tileset/enemy.png");
 loadSound("OtherworldlyFoe", "sounds/main.flac");
 loadSound("woosh", "sounds/woosh.flac");
 
@@ -88,8 +95,50 @@ const  player = add([
     area(),
     body(),
 ])
+const MAP_WIDTH = 440;
+const MAP_HEIGHT = 275;
+const BLOCK_SIZE = 11;
+const ENEMY__BASE_SPEED = 100;
+const ENEMY_SPEED_INC = 20;
+const directions = {
+  LEFT: "left",
+  RIGHT: "right"
+}
+
+function spawnEnemy() {
+    let enemyDirection = choose([directions.LEFT, directions.RIGHT]);
+    let xpos = (enemyDirection == directions.LEFT ? 0:MAP_WIDTH);
+
+    const points_speed_up = Math.floor(player.score / 1000);
+    const enemy_speed = ENEMY__BASE_SPEED + (points_speed_up * ENEMY_SPEED_INC);
+    const new_enemy_interval = 0.8 - (points_speed_up/20);
+
+    add([
+        sprite("enemy"),
+        pos(xpos, rand(0, MAP_HEIGHT-20)),
+        "enemy",
+         {
+             speedX: rand(enemy_speed * 0.5, enemy_speed * 1.5) * (enemyDirection == directions.LEFT ? 1: -1),
+            speedY: rand(enemy_speed * 0.1, enemy_speed * 0.5) * choose([-1,1])
+         },
+    ]);
+
+    wait(new_enemy_interval, spawnEnemy);
+}
+
+spawnEnemy();
 
 
+action("enemy", (enemy) => {
+    enemy.move(enemy.speedX, enemy.speedY);
+
+    if ((enemy.pos.y - enemy.height > MAP_HEIGHT) || (enemy.pos.y < 0)) {
+        destroy(enemy);
+    }
+    if ((enemy.pos.x < -1 * enemy.width) ||(enemy.pos.x > MAP_WIDTH)) {
+        destroy(enemy);
+    }
+});
 
 function producePipes(){
     const offset = rand(-20,20);
