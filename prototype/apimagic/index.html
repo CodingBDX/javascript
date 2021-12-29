@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+        }
+  #myimg {
+    border-radius: 15% / 3%;
+  box-shadow: 
+    -8px -8px 5px -5px red;, 
+    5px 5px 5px -5px rgb(255, 0, 231);, 
+    -7px -7px 10px -5px transparent, 
+    7px 7px 10px -5px transparent, 
+    0 0 5px 0px rgba(255,255,255,0),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
+ 
+  
+  
+  }
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+#otro-blockquote{
+  font-size: 1em;
+  width:60%;
+  margin:50px auto;
+  font-family:Open Sans;
+  font-style:italic;
+  color: #555555;
+  padding:1.2em 30px 1.2em 75px;
+  border-left:8px solid #78C0A8 ;
+  line-height:1.6;
+  position: relative;
+  background:#EDEDED;
+}
+
+#otro-blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+.otro-blockquote::after{
+  content: '';
+}
+        #img{
+            text-align: center;
+            margin:auto;
+           
+
+  
+
+  
+
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+    
+
+    font-size: 0.9em;
+    font-family: sans-serif;
+    
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);  
+        }
+        thead  tr {
+   
+    color: #ffffff;
+    text-align: left;
+}
+ th,
+td {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+    </style>
+   
+</head>
+<body>
+    <div id="img" class="shape-inner"></div>
+    <div id="otro-blockquote"></div>
+    <table>
+        <tr>
+            
+            <th>Nom</th>
+            <th>release</th>
+            <th>color</th>
+            <th>price</th>
+            <th>buy</th>
+
+        </tr>
+     
+        <tr>
+           
+            <td id="name"></td>
+            <td id="release"></td>
+            <td id="color"></td>
+            <td id="price"></td>
+            <td id="acheter"></td>
+
+        </tr>
+       
+     </table>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           
+                fetch(' https://api.scryfall.com/cards/random')
+                
+            .then(response => response.json())
+            .then(data => {
+            const cardname = data.name;
+            const release = data.released_at;
+            const color = data.mana_cost;
+            const price = data.prices.eur;
+            const img = data.image_uris.small;
+            const cardmarker = data.purchase_uris.cardmarket;
+            const oracle = data.oracle_text;
+
+            document.querySelector('#name').innerHTML = `${cardname}`;
+            document.querySelector('#release').innerHTML = `${release}`;
+            document.querySelector('#color').innerHTML = `${color}`;
+            document.querySelector('#price').innerHTML = `${price}`;
+            document.querySelector('#img').innerHTML = `<img id="myimg"src="${img}" alt="${name}">`;
+            document.querySelector('#otro-blockquote').innerHTML = `<p>${oracle}</p>`;
+            document.querySelector('#acheter').innerHTML = `<a href="${cardmarker}">
+            
+
+   <button>buy</button>
+</a>
+`;
+
+            
+
+            });
+         
+           
+        });
+    </script>
+</body>
+</html>
