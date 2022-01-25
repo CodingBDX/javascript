@@ -1,0 +1,15 @@
+.popup-close {
+position: absolute;
+top: 4px;
+right: 8px;
+cursor: pointer;
+}
+
+.popup-wrapper {
+    display: none;
+}
+
+.popup-content {
+    text-align: center;
+    margin: auto;
+}
