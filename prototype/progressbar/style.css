@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    margin-top: 25%;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+    max-width: 100%;
+    width: 75vw;
+
+
+}
+
+.progress-container::before {
+    content: '';
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 20%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: -1;
+   
+}
+
+.progress {
+    background-color: #349834;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 20%;
+    width: 0%;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.circle {
+    background-color: white;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #e0e0e0;
+    transition: 0.4s ease;
+}
+
+.circle.active {
+    border-color: #349834;
+}
+
+.btn {
+    background-color: #349834;
+    color: #e0e0e0;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 20px;
+    margin: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:focus {
+outline: 0;
+}
+
+.btn:disabled {
+    background-color: #e0e0e0;
+    color: #349834;
+    cursor: not-allowed;
+}
