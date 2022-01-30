@@ -1,0 +1,150 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+h1 {
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.btn {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: white;
+    background-color: crimson;
+    border: crimson solid 0.2rem;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+
+}
+
+.btn:hover {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: grey;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+    left: 0;
+    background-image: url('https://images.unsplash.com/photo-1607853202273-797f1c22a38e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGxheXN0YXRpb24lMjA1fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left::before {
+content: '';
+width: 100%;
+position: absolute;
+height: 100%;
+background-color: rgba(87, 84, 236, 0,7);
+}
+
+.split.right {
+    right: 0;
+    background-image: url('https://images.unsplash.com/photo-1621259182978-fbf93132d53d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.split.right::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    background-color: rgba(87, 84, 236, 0,7);
+    }
+    
+.split.right, .split.left, .split.right::before, .split.left::before {
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-left .left {
+    width: 75%;
+}
+.hover-left .right {
+    width: 25%;
+}
+
+
+
+
+.hover-right .right {
+    width: 75%;
+}
+.hover-right .left {
+    width: 25%;
+}
+
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 
+        2rem;
+        margin-top: 55%;
+
+    }
+
+    .btn {
+        padding: 2px;
+        font-size: 22px;
+        margin-top: 75%;
+
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
