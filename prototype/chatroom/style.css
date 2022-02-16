@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Birthstone&family=Bonheur+Royale&family=Dongle:wght@700&family=Roboto:wght@100&family=Shizuru&display=swap');
+
+body {
+    background-color: firebrick;
+}
+h1 {
+    font-family: Shizuru;
+    color: cornsilk;
+}
+.container {
+    max-width: 600px;
+}
+.update-mssg, .choose {
+    color: azure;
+    text-align: center;
+    margin: 5px 0;
+}
+.btn {
+    background-color: crimson;
+    color: white;
+    outline: none!;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline:none!;
+    color: darkred!;
+cursor: pointer;
+    
+}
+.username {
+    font-weight: bold;
+}
+.time {
+    font-weight: 0.7em;
+    color: grey;
+}
+
+.chat-list {
+    height: 40vh;
+    overflow: auto;
+}
