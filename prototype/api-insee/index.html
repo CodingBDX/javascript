@@ -45,20 +45,19 @@
 <ul ></ul>
 
 <script>
-	
-
-function parent_enfant(parent, el) {
-return parent.appendChild(el);
-}
+	// function pour recuperer des donnees de l'api insee, on reduit les functions ou url dans des variables pour faciliter la lecture
 
 const ul = document.getElementById('entreprises');
 const url = 'https://entreprise.data.gouv.fr/api/sirene/v1/full_text/montpellier';
 
+// c'est ici que la magie opère, puisque cela recupere la data de l url en json
 fetch(url).then((resp) => resp.json()).then(function (data) {
 let entreprises = data.etablissement;
+
+// comme on a plusieurs resultats, il faut les recuperers individuellements
 return entreprises.map(function (entreprise) {
 let td = document.createElement('td');
-document.querySelector('#entreprise_nom').innerHTML = `${entreprise.l1_normalisee}`;
+document.querySelector('#entreprise_nom').innerHTML = `${td} ${entreprise.l1_normalisee}`;
 
 })
 
