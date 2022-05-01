@@ -16,48 +16,52 @@
 	<thead>
 		<tr>
 			<th scope="col">#</th>
-			<th scope="col">First</th>
+			<th scope="col">Numero</th>
 			<th scope="col">Nom</th>
 			<th scope="col">Adresse</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>@mdo</td>
-		</tr>
-		<tr>
-<th scope="row" id="entreprises">2</th>
+		
+<th scope="row">2</th>
+
+<td id="entreprise_numero"></td>
 
 			<td id="entreprise_nom"></td>
+<td id="entreprise_adresse"></td>
+
+
 			
 		</tr>
-		<tr>
-			<th scope="row">3</th>
-			<td colspan="2">Larry the Bird</td>
-			<td>@twitter</td>
-		</tr>
+		
 	</tbody>
 </table>
-
-<ul ></ul>
-
 <script>
 	// function pour recuperer des donnees de l'api insee, on reduit les functions ou url dans des variables pour faciliter la lecture
 
 const ul = document.getElementById('entreprises');
 const url = 'https://entreprise.data.gouv.fr/api/sirene/v1/full_text/montpellier';
 
+
+
+
+
 // c'est ici que la magie opère, puisque cela recupere la data de l url en json
 fetch(url).then((resp) => resp.json()).then(function (data) {
 let entreprises = data.etablissement;
-
 // comme on a plusieurs resultats, il faut les recuperers individuellements
 return entreprises.map(function (entreprise) {
+
 let td = document.createElement('td');
-document.querySelector('#entreprise_nom').innerHTML = `${td} ${entreprise.l1_normalisee}`;
+document.querySelector('#entreprise_nom').innerHTML = `${entreprise.l1_normalisee}`;
+document.querySelector('#entreprise_adresse').innerHTML = `${entreprise.l4_normalisee}`;
+document.querySelector('#entreprise_numero').innerHTML = `${entreprise.id}`;
+
+
+
+
+
+
 
 })
 
