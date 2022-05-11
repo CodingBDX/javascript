@@ -74,7 +74,8 @@ document.querySelector('.numero').innerHTML += `<p class="display:inline-block;c
 document.querySelector('#entreprise_nom').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.l1_normalisee}</p>`;
 
 
-document.querySelector('#entreprise_adresse').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.l4_normalisee}</p>`;
+document.querySelector('#entreprise_adresse').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.l4_normalisee ? entreprise.l4_normalisee : ''}</p>`;
+
 
 
 document.querySelector('#entreprise_numero').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.id}</p>`;
