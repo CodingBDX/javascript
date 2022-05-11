@@ -42,3 +42,8 @@ Il faut bien sur creer plusieurs elements pour que nos données soit enregistré
 nous prenoms l'id que nous avons choisi puis nous lui passons .innerhtml qui permet d'injecter nos données dans notre fichier html, ici `${entreprise.l1_normalisee} = à data.etablissement.l1_normalisee
 
 
+eviter d'afficher les valeurs null, il suffit simplement de faire un else
+```php
+${entreprise.ladonnee ? entrepriseladonnee : "pas d'adresse"}
+```
+on afficher la donnee ou rien ''
