@@ -47,3 +47,5 @@ eviter d'afficher les valeurs null, il suffit simplement de faire un else
 ${entreprise.ladonnee ? entrepriseladonnee : "pas d'adresse"}
 ```
 on afficher la donnee ou rien ''
+
+![MarineGEO circle logo](website_entreprises.png "fullscreen website")

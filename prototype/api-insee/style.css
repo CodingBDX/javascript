@@ -6,6 +6,26 @@ body {
     
 }
 
+#flex {
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.image svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    
+}
+.text {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
 table, thead, tbody {
     padding-top: 1em;
     text-align: center;
