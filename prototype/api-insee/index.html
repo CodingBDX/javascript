@@ -25,7 +25,7 @@
 		
 <th scope="row">2</th>
 
-<td id="entreprise_numero"></td>
+<td id="entreprise_numero" class="display:inline-block;color:red"></td>
 
 			<td id="entreprise_nom"></td>
 <td id="entreprise_adresse"></td>
@@ -53,9 +53,11 @@ let entreprises = data.etablissement;
 return entreprises.map(function (entreprise) {
 
 let td = document.createElement('td');
-document.querySelector('#entreprise_nom').innerHTML = `${entreprise.l1_normalisee}`;
-document.querySelector('#entreprise_adresse').innerHTML = `${entreprise.l4_normalisee}`;
-document.querySelector('#entreprise_numero').innerHTML = `${entreprise.id}`;
+document.querySelector('#entreprise_nom').innerHTML += `<p class="display:inline-block">${entreprise.l1_normalisee}</p>`;
+
+document.querySelector('#entreprise_adresse').innerHTML += `<p class="display:inline-block">${entreprise.l4_normalisee}</p>`;
+
+document.querySelector('#entreprise_numero').innerHTML += `<p class="display:inline-block">${entreprise.id}</p>`;
 
 
 
