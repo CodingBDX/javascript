@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+body {
+    background-color: #0A192F;
+    color: #38D8DA;
+    
+}
+
+table, thead, tbody {
+    padding-top: 1em;
+    text-align: center;
+    color: #38D8DA;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+font-family: 'Koulen',
+cursive;
+    font-size: 4em;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    color: blueviolet;
+    display: flex;
+    
+    
+    justify-content: center;
+}
+
+#grid {
+    display:flex;
+    justify-content: space-between;
+    background-color: gainsboro;
+    height: 30vh;
+    width:100%;
+}
+
+.show {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: aliceblue;
+    gap: 1.2em;
+}
+
+.element {
+    display: flex;
+    height: auto;
+    margin: 1em;
+    padding: 1em;
+    background-color: #112240;
+    flex-direction: row;
+    overflow: hidden;
+    color: aliceblue;
+}

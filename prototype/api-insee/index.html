@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>entreprises</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<link rel="stylesheet" href="style.css">
 
 </head>
 <body>
 <h1>entreprises</h1>
+
+<section id="grid">
+<div class="show">
+<div class="element">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est expedita beatae magni animi nisi iusto repellendus nihil aperiam tempore, omnis ullam.</div>
+<div class="element">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, repudiandae?</div>
+
+<div class="element">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur cupiditate incidunt nisi, aliquam modi tempore?</div>
+
+<div class="element">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis nihil odio eos excepturi sequi!</div>
+
+
+</div>
+
+</section>
 
 <table class="table">
 	<thead>
@@ -23,9 +36,9 @@
 	</thead>
 	<tbody>
 		
-<th scope="row">2</th>
+<th scope="row" class="numero"></th>
 
-<td id="entreprise_numero" class="display:inline-block;color:red"></td>
+<td id="entreprise_numero"></td>
 
 			<td id="entreprise_nom"></td>
 <td id="entreprise_adresse"></td>
@@ -40,7 +53,7 @@
 	// function pour recuperer des donnees de l'api insee, on reduit les functions ou url dans des variables pour faciliter la lecture
 
 const ul = document.getElementById('entreprises');
-const url = 'https://entreprise.data.gouv.fr/api/sirene/v1/full_text/montpellier';
+const url = 'https://entreprise.data.gouv.fr/api/sirene/v1/full_text/bordeaux';
 
 
 
@@ -49,15 +62,23 @@ const url = 'https://entreprise.data.gouv.fr/api/sirene/v1/full_text/montpellier
 // c'est ici que la magie opère, puisque cela recupere la data de l url en json
 fetch(url).then((resp) => resp.json()).then(function (data) {
 let entreprises = data.etablissement;
+let chiffre = 0;
+
 // comme on a plusieurs resultats, il faut les recuperers individuellements
 return entreprises.map(function (entreprise) {
 
 let td = document.createElement('td');
-document.querySelector('#entreprise_nom').innerHTML += `<p class="display:inline-block">${entreprise.l1_normalisee}</p>`;
+document.querySelector('.numero').innerHTML += `<p class="display:inline-block;color: #38D8DA">${chiffre ++}</p>`;
 
-document.querySelector('#entreprise_adresse').innerHTML += `<p class="display:inline-block">${entreprise.l4_normalisee}</p>`;
 
-document.querySelector('#entreprise_numero').innerHTML += `<p class="display:inline-block">${entreprise.id}</p>`;
+document.querySelector('#entreprise_nom').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.l1_normalisee}</p>`;
+
+
+document.querySelector('#entreprise_adresse').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.l4_normalisee}</p>`;
+
+
+document.querySelector('#entreprise_numero').innerHTML += `<p class="display:inline-block;color: #38D8DA">${entreprise.id}</p>`;
+
 
 
 
