@@ -1,0 +1,68 @@
+ body {
+     height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+   
+ }
+ 
+ h1 {
+     color: aliceblue;
+    background-color: #A7B30B;
+    
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    gap: 1rem;
+    /* text-decoration: none; */
+}
+header nav ul li a {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    font-weight: 800;
+    color: #A7B30B;
+    text-decoration: none;
+}
+
+main .flex-magic  {
+
+
+    display: flex;
+    gap:1rem;
+    background-color: #A7B30B;
+    flex-direction: row-reverse;
+    /* flex-direction: row; */
+}
+
+main .flex-magic > * {
+    padding: 2em;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-basis: 80vw;
+    flex-shrink: 1;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+}
+.flex-magic svg {
+    width: 100%;
+}
+
+main .flex-magic .text {
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width:680px) {
+    main .flex-magic {
+        flex-direction: column;
+        padding: .6em;
+    }
+    
+}

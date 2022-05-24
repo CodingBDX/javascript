@@ -1,0 +1,52 @@
+body {
+    background-color: aqua;
+}
+
+
+section.counter_wrapper {
+
+    display: grid;
+    
+    grid-template-columns:repeat(3, 1fr);
+    background-color: blue;
+}
+
+section.counter_wrapper > div {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+section.counter_wrapper > div i {
+    font-size: 2.8em;
+    margin-right: .6em;
+}
+
+section.counter_wrapper > div h3 {
+    font-size: 1.6em;
+    color: white;
+    font-weight: bold;
+    
+}
+
+section.counter_wrapper > div h5 {
+    font-size: 1.1em;
+    color: aquamarine;
+    text-transform: uppercase;
+    
+}
+ 
+section.counter_wrapper > div:nth-child(1) i {
+    color: blueviolet;
+}
+
+section.counter_wrapper>div:nth-child(2) i {
+    color: yellow
+}
+section.counter_wrapper>div:nth-child(3) i {
+    color: chartreuse;
+}
+
+@media  screen and (min-width: 30em) {
+    grid-template-columns:repeat(1, 1fr) !important;
+}

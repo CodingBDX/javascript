@@ -73,3 +73,28 @@ cursive;
     overflow: hidden;
     color: aliceblue;
 }
+
+@media (max-width: 991px) {
+ 
+    .show {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6em;
+    }
+
+
+    .element {
+        margin: 0.2em;
+        padding: 0.2em;
+    }
+
+
+    table,
+    thead,
+    tbody {
+        min-width: 100vw;
+        min-height: 100%;
+        overflow: hidden;
+        position: relative;
+        flex-direction: column;
+    }
+}
