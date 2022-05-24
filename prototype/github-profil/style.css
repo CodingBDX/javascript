@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: darkred;
+    color: white;
+}
+
+.user-form {
+
+    width: 100%;
+    max-width: 70vw;
+}
+
+.user-form input {
+    width: 100%;
+    display: block;
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    padding: .7em;
+    font-family: inherit;
+    font-size: .9em;
+    margin-bottom: 1em;
+    border-radius: .5em;
+    box-shadow: 0 .3em .8em rgba(154, 160, 185, 0.05),
+    0 .9em 2em rgb(0, 0, 0, 0.1);
+}
+
+.user-form input::placeholder {
+    color: whitesmoke;
+}
+img {
+    max-width: 100%;
+    max-height: fit-content;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: .5em solid blue;
+    height: 150px;
+    width: 150px;
+}
+.card {
+        box-shadow: 0 .3em .8em rgba(154, 160, 185, 0.05),
+        0 .9em 2em rgb(0, 0, 0, 0.1);
+    max-width: 60vw;
+    border-radius: .7em;
+    display: flex;
+    flex-direction: row;
+    padding: 3rem;
+
+margin: 0 &rem;
+    background-color: blueviolet;
+}
+
+.user-info {
+    color: white;
+    margin-left: 2rem;
+}
+
+.user-info ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    max-width: 50vw;
+}
+
+.user-info ul li strong {
+    margin-left: .5em;
+    text-transform: uppercase;
+}
+
+.repo {
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    font-size: .8em;
+    padding: .5em .6em;
+    margin-right: .6em;
+    display: inline-block;
+}
+
+@media (max-width:60em) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .user-form {
+        max-width: 40vw;
+        
+    }
+    .user-info h2 {
+        text-align: center;
+    }
+    .user-info ul {
+        display: flex;
+        flex-direction: column;
+}
