@@ -1,5 +1,7 @@
 # toast notification 
 ---
+## url test
+https://htmlpreview.github.io/?https://github.com/CodingBDX/javascript/blob/main/prototype/toast-notification/index.html
 ## effet grossir
 pour faire un effet sur le click il faut marquer la propriete suivi de :active et de faire une transform de scale
 ```css
