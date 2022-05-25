@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    background-color: darkgray;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    display: inline-block;
+    width: 40vw;
+    max-width: 100%;
+    margin: 0 20vw;
+}
+h1 strong {
+    color: chartreuse;
+    text-transform: uppercase;
+}
+
+div {
+    position: absolute;
+    bottom: .5em;
+    background: rgba(0, 0, 0, 0.3);
+    padding: .6em;
+    font-size: 1.2em;
+    color: chartreuse;
+}
+
+div input {
+    color: chartreuse;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: .8em;
+    width: 4vw;
+    min-width: 2em;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+
+
