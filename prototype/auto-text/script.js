@@ -13,6 +13,8 @@ let speed = 1500 / speedEl.value
 writeText()
 
 function writeText()  {
+textEl.style.animation = "grow 4s linear"
+textEl.style.transform = "translate(-50%, -50%) scale(0)"  
 
     textEl.innerText = getRandomQuality().slice(0, idx)
 
@@ -20,7 +22,7 @@ function writeText()  {
 
     if(idx > getRandomQuality().length) {
 
-        idx = 100
+        idx = 10
 
     }
 

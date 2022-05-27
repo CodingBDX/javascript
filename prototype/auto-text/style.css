@@ -13,10 +13,24 @@ h1 {
     width: 40vw;
     max-width: 100%;
     margin: 0 20vw;
+    animation: grow .5s linear;
+    transform: scale(1);
 }
 h1 strong {
+   
+   
     color: chartreuse;
     text-transform: uppercase;
+}
+
+@keyframes grow {
+    to {
+        {
+            transform: scale(10);
+            opacity: 0;
+        }
+
+    }
 }
 
 div {
